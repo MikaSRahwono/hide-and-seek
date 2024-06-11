@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FAAC07AF2C1847E80017C949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07AE2C1847E80017C949 /* AppDelegate.swift */; };
+		FAAC07B12C1847E80017C949 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAAC07B02C1847E80017C949 /* GameScene.sks */; };
+		FAAC07B32C1847E80017C949 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAAC07B22C1847E80017C949 /* Actions.sks */; };
+		FAAC07B52C1847E80017C949 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07B42C1847E80017C949 /* GameScene.swift */; };
+		FAAC07B72C1847E80017C949 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07B62C1847E80017C949 /* GameViewController.swift */; };
+		FAAC07BA2C1847E80017C949 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FAAC07B92C1847E80017C949 /* Base */; };
+		FAAC07BC2C1847E90017C949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAC07BB2C1847E90017C949 /* Assets.xcassets */; };
+		FAAC07BF2C1847E90017C949 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FAAC07BE2C1847E90017C949 /* Base */; };
+		FAAC07C92C1847E90017C949 /* golekiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07C82C1847E90017C949 /* golekiTests.swift */; };
+		FAAC07D32C1847E90017C949 /* golekiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07D22C1847E90017C949 /* golekiUITests.swift */; };
+		FAAC07D52C1847E90017C949 /* golekiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07D42C1847E90017C949 /* golekiUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAAC07C52C1847E90017C949 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAAC07A32C1847E80017C949 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAAC07AA2C1847E80017C949;
+			remoteInfo = goleki;
+		};
+		FAAC07CF2C1847E90017C949 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAAC07A32C1847E80017C949 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAAC07AA2C1847E80017C949;
+			remoteInfo = goleki;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FAAC07AB2C1847E80017C949 /* goleki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goleki.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAAC07AE2C1847E80017C949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAAC07B02C1847E80017C949 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		FAAC07B22C1847E80017C949 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		FAAC07B42C1847E80017C949 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		FAAC07B62C1847E80017C949 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		FAAC07B92C1847E80017C949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAAC07BB2C1847E90017C949 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAAC07BE2C1847E90017C949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FAAC07C42C1847E90017C949 /* golekiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = golekiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAAC07C82C1847E90017C949 /* golekiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = golekiTests.swift; sourceTree = "<group>"; };
+		FAAC07CE2C1847E90017C949 /* golekiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = golekiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAAC07D22C1847E90017C949 /* golekiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = golekiUITests.swift; sourceTree = "<group>"; };
+		FAAC07D42C1847E90017C949 /* golekiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = golekiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAAC07A82C1847E80017C949 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAC07C12C1847E90017C949 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAC07CB2C1847E90017C949 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAAC07A22C1847E80017C949 = {
+			isa = PBXGroup;
+			children = (
+				FAAC07AD2C1847E80017C949 /* goleki */,
+				FAAC07C72C1847E90017C949 /* golekiTests */,
+				FAAC07D12C1847E90017C949 /* golekiUITests */,
+				FAAC07AC2C1847E80017C949 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAAC07AC2C1847E80017C949 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC07AB2C1847E80017C949 /* goleki.app */,
+				FAAC07C42C1847E90017C949 /* golekiTests.xctest */,
+				FAAC07CE2C1847E90017C949 /* golekiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAAC07AD2C1847E80017C949 /* goleki */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC07AE2C1847E80017C949 /* AppDelegate.swift */,
+				FAAC07B02C1847E80017C949 /* GameScene.sks */,
+				FAAC07B22C1847E80017C949 /* Actions.sks */,
+				FAAC07B42C1847E80017C949 /* GameScene.swift */,
+				FAAC07B62C1847E80017C949 /* GameViewController.swift */,
+				FAAC07B82C1847E80017C949 /* Main.storyboard */,
+				FAAC07BB2C1847E90017C949 /* Assets.xcassets */,
+				FAAC07BD2C1847E90017C949 /* LaunchScreen.storyboard */,
+			);
+			path = goleki;
+			sourceTree = "<group>";
+		};
+		FAAC07C72C1847E90017C949 /* golekiTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC07C82C1847E90017C949 /* golekiTests.swift */,
+			);
+			path = golekiTests;
+			sourceTree = "<group>";
+		};
+		FAAC07D12C1847E90017C949 /* golekiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC07D22C1847E90017C949 /* golekiUITests.swift */,
+				FAAC07D42C1847E90017C949 /* golekiUITestsLaunchTests.swift */,
+			);
+			path = golekiUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAAC07AA2C1847E80017C949 /* goleki */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAAC07D82C1847E90017C949 /* Build configuration list for PBXNativeTarget "goleki" */;
+			buildPhases = (
+				FAAC07A72C1847E80017C949 /* Sources */,
+				FAAC07A82C1847E80017C949 /* Frameworks */,
+				FAAC07A92C1847E80017C949 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = goleki;
+			productName = goleki;
+			productReference = FAAC07AB2C1847E80017C949 /* goleki.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAAC07C32C1847E90017C949 /* golekiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAAC07DB2C1847E90017C949 /* Build configuration list for PBXNativeTarget "golekiTests" */;
+			buildPhases = (
+				FAAC07C02C1847E90017C949 /* Sources */,
+				FAAC07C12C1847E90017C949 /* Frameworks */,
+				FAAC07C22C1847E90017C949 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAAC07C62C1847E90017C949 /* PBXTargetDependency */,
+			);
+			name = golekiTests;
+			productName = golekiTests;
+			productReference = FAAC07C42C1847E90017C949 /* golekiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAAC07CD2C1847E90017C949 /* golekiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAAC07DE2C1847E90017C949 /* Build configuration list for PBXNativeTarget "golekiUITests" */;
+			buildPhases = (
+				FAAC07CA2C1847E90017C949 /* Sources */,
+				FAAC07CB2C1847E90017C949 /* Frameworks */,
+				FAAC07CC2C1847E90017C949 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAAC07D02C1847E90017C949 /* PBXTargetDependency */,
+			);
+			name = golekiUITests;
+			productName = golekiUITests;
+			productReference = FAAC07CE2C1847E90017C949 /* golekiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAAC07A32C1847E80017C949 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					FAAC07AA2C1847E80017C949 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					FAAC07C32C1847E90017C949 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = FAAC07AA2C1847E80017C949;
+					};
+					FAAC07CD2C1847E90017C949 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = FAAC07AA2C1847E80017C949;
+					};
+				};
+			};
+			buildConfigurationList = FAAC07A62C1847E80017C949 /* Build configuration list for PBXProject "goleki" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAAC07A22C1847E80017C949;
+			productRefGroup = FAAC07AC2C1847E80017C949 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAAC07AA2C1847E80017C949 /* goleki */,
+				FAAC07C32C1847E90017C949 /* golekiTests */,
+				FAAC07CD2C1847E90017C949 /* golekiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAAC07A92C1847E80017C949 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAAC07B12C1847E80017C949 /* GameScene.sks in Resources */,
+				FAAC07BA2C1847E80017C949 /* Base in Resources */,
+				FAAC07BC2C1847E90017C949 /* Assets.xcassets in Resources */,
+				FAAC07B32C1847E80017C949 /* Actions.sks in Resources */,
+				FAAC07BF2C1847E90017C949 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAC07C22C1847E90017C949 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAC07CC2C1847E90017C949 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAAC07A72C1847E80017C949 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAAC07B52C1847E80017C949 /* GameScene.swift in Sources */,
+				FAAC07B72C1847E80017C949 /* GameViewController.swift in Sources */,
+				FAAC07AF2C1847E80017C949 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAC07C02C1847E90017C949 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAAC07C92C1847E90017C949 /* golekiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAC07CA2C1847E90017C949 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAAC07D32C1847E90017C949 /* golekiUITests.swift in Sources */,
+				FAAC07D52C1847E90017C949 /* golekiUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAAC07C62C1847E90017C949 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAAC07AA2C1847E80017C949 /* goleki */;
+			targetProxy = FAAC07C52C1847E90017C949 /* PBXContainerItemProxy */;
+		};
+		FAAC07D02C1847E90017C949 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAAC07AA2C1847E80017C949 /* goleki */;
+			targetProxy = FAAC07CF2C1847E90017C949 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FAAC07B82C1847E80017C949 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAAC07B92C1847E80017C949 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FAAC07BD2C1847E90017C949 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAAC07BE2C1847E90017C949 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAAC07D62C1847E90017C949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FAAC07D72C1847E90017C949 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAAC07D92C1847E90017C949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iosda.goleki;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAAC07DA2C1847E90017C949 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iosda.goleki;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FAAC07DC2C1847E90017C949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iosda.golekiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/goleki.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/goleki";
+			};
+			name = Debug;
+		};
+		FAAC07DD2C1847E90017C949 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iosda.golekiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/goleki.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/goleki";
+			};
+			name = Release;
+		};
+		FAAC07DF2C1847E90017C949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iosda.golekiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = goleki;
+			};
+			name = Debug;
+		};
+		FAAC07E02C1847E90017C949 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iosda.golekiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = goleki;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAAC07A62C1847E80017C949 /* Build configuration list for PBXProject "goleki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAAC07D62C1847E90017C949 /* Debug */,
+				FAAC07D72C1847E90017C949 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAAC07D82C1847E90017C949 /* Build configuration list for PBXNativeTarget "goleki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAAC07D92C1847E90017C949 /* Debug */,
+				FAAC07DA2C1847E90017C949 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAAC07DB2C1847E90017C949 /* Build configuration list for PBXNativeTarget "golekiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAAC07DC2C1847E90017C949 /* Debug */,
+				FAAC07DD2C1847E90017C949 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAAC07DE2C1847E90017C949 /* Build configuration list for PBXNativeTarget "golekiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAAC07DF2C1847E90017C949 /* Debug */,
+				FAAC07E02C1847E90017C949 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAAC07A32C1847E80017C949 /* Project object */;
+}
