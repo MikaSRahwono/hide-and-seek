@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA1BD64C2C1AD77600965F1A /* ResidenceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA1BD64B2C1AD77600965F1A /* ResidenceScene.sks */; };
 		FAAC07AF2C1847E80017C949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07AE2C1847E80017C949 /* AppDelegate.swift */; };
 		FAAC07B12C1847E80017C949 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAAC07B02C1847E80017C949 /* GameScene.sks */; };
 		FAAC07B32C1847E80017C949 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAAC07B22C1847E80017C949 /* Actions.sks */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA1BD64B2C1AD77600965F1A /* ResidenceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ResidenceScene.sks; sourceTree = "<group>"; };
 		FAAC07AB2C1847E80017C949 /* goleki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goleki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAC07AE2C1847E80017C949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAC07B02C1847E80017C949 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				FAAC07BD2C1847E90017C949 /* LaunchScreen.storyboard */,
 				FAAC07E62C18552C0017C949 /* MapScene.sks */,
 				FAAC07EB2C18566F0017C949 /* Background.sks */,
+				FA1BD64B2C1AD77600965F1A /* ResidenceScene.sks */,
 			);
 			path = goleki;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				FAAC07BC2C1847E90017C949 /* Assets.xcassets in Resources */,
 				FAAC07E72C18552C0017C949 /* MapScene.sks in Resources */,
 				FAAC07EC2C18566F0017C949 /* Background.sks in Resources */,
+				FA1BD64C2C1AD77600965F1A /* ResidenceScene.sks in Resources */,
 				FAAC07B32C1847E80017C949 /* Actions.sks in Resources */,
 				FAAC07BF2C1847E90017C949 /* Base in Resources */,
 			);
