@@ -24,7 +24,6 @@
 		FAAC07D32C1847E90017C949 /* golekiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07D22C1847E90017C949 /* golekiUITests.swift */; };
 		FAAC07D52C1847E90017C949 /* golekiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07D42C1847E90017C949 /* golekiUITestsLaunchTests.swift */; };
 		FAAC07E42C184FC60017C949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAC07E22C184FC60017C949 /* Assets.xcassets */; };
-		FAAC07E72C18552C0017C949 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAAC07E62C18552C0017C949 /* MapScene.sks */; };
 		FAAC07EC2C18566F0017C949 /* Background.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAAC07EB2C18566F0017C949 /* Background.sks */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +66,6 @@
 		FAAC07D42C1847E90017C949 /* golekiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = golekiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FAAC07E12C184F980017C949 /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
 		FAAC07E22C184FC60017C949 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FAAC07E62C18552C0017C949 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
 		FAAC07EB2C18566F0017C949 /* Background.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Background.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,7 +127,6 @@
 				FAAC07B82C1847E80017C949 /* Main.storyboard */,
 				FAAC07BB2C1847E90017C949 /* Assets.xcassets */,
 				FAAC07BD2C1847E90017C949 /* LaunchScreen.storyboard */,
-				FAAC07E62C18552C0017C949 /* MapScene.sks */,
 				FAAC07EB2C18566F0017C949 /* Background.sks */,
 				FA1BD64B2C1AD77600965F1A /* ResidenceScene.sks */,
 				0443790F2C2193AA0052E49D /* ExampleTile.sks */,
@@ -266,7 +263,6 @@
 				FAAC07BA2C1847E80017C949 /* Base in Resources */,
 				FA1BD6502C1AEF4D00965F1A /* InteriorAssetScene.sks in Resources */,
 				FAAC07BC2C1847E90017C949 /* Assets.xcassets in Resources */,
-				FAAC07E72C18552C0017C949 /* MapScene.sks in Resources */,
 				FAAC07EC2C18566F0017C949 /* Background.sks in Resources */,
 				0443790C2C2186090052E49D /* EnvironmentTileSets.sks in Resources */,
 				FA1BD64C2C1AD77600965F1A /* ResidenceScene.sks in Resources */,
