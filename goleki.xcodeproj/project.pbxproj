@@ -105,14 +105,6 @@
 		FA4BE3322C22C8A300369DC7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				FAAC07B02C1847E80017C949 /* GameScene.sks */,
-				FAAC07B22C1847E80017C949 /* Actions.sks */,
-				FAAC07E62C18552C0017C949 /* MapScene.sks */,
-				FAAC07EB2C18566F0017C949 /* Background.sks */,
-				FA1BD64B2C1AD77600965F1A /* ResidenceScene.sks */,
-				FA1BD64F2C1AEF4D00965F1A /* InteriorAssetScene.sks */,
-				FAAC07B42C1847E80017C949 /* GameScene.swift */,
-				FA4BE3252C2277C900369DC7 /* MapScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -150,6 +142,14 @@
 				FAAC07BB2C1847E90017C949 /* Assets.xcassets */,
 				FAAC07BD2C1847E90017C949 /* LaunchScreen.storyboard */,
 				FA4BE3292C22782800369DC7 /* ContactHelper.swift */,
+				FAAC07B02C1847E80017C949 /* GameScene.sks */,
+				FAAC07B22C1847E80017C949 /* Actions.sks */,
+				FAAC07E62C18552C0017C949 /* MapScene.sks */,
+				FAAC07EB2C18566F0017C949 /* Background.sks */,
+				FA1BD64B2C1AD77600965F1A /* ResidenceScene.sks */,
+				FA1BD64F2C1AEF4D00965F1A /* InteriorAssetScene.sks */,
+				FAAC07B42C1847E80017C949 /* GameScene.swift */,
+				FA4BE3252C2277C900369DC7 /* MapScene.swift */,
 			);
 			path = goleki;
 			sourceTree = "<group>";
