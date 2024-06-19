@@ -113,15 +113,9 @@
 		FA4BE32B2C22C06000369DC7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FAAC07B62C1847E80017C949 /* GameViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		FA4BE3322C22C8A300369DC7 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Scenes;
 			sourceTree = "<group>";
 		};
 		FAAC07A22C1847E80017C949 = {
@@ -147,11 +141,8 @@
 		FAAC07AD2C1847E80017C949 /* goleki */ = {
 			isa = PBXGroup;
 			children = (
-				FA4BE3322C22C8A300369DC7 /* Scenes */,
-				FA4BE32C2C22C17A00369DC7 /* ResidenceScene.swift */,
-				FA4BE32B2C22C06000369DC7 /* Controller */,
-				FAAC07B62C1847E80017C949 /* GameViewController.swift */,
-				FA4BE3272C2277EC00369DC7 /* Person.swift */,
+				FABCAA932C22CCC500265995 /* Nodes */,
+				FABCAA922C22CC9F00265995 /* Scenes */,
 				FAAC07AE2C1847E80017C949 /* AppDelegate.swift */,
 				FAAC07B82C1847E80017C949 /* Main.storyboard */,
 				FAAC07BB2C1847E90017C949 /* Assets.xcassets */,
@@ -166,6 +157,7 @@
 =======
 				FA4BE3292C22782800369DC7 /* ContactHelper.swift */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 1ec35bf (Adding movement logic)
 =======
 				FAAC07B02C1847E80017C949 /* GameScene.sks */,
@@ -177,6 +169,9 @@
 				FAAC07B42C1847E80017C949 /* GameScene.swift */,
 				FA4BE3252C2277C900369DC7 /* MapScene.swift */,
 >>>>>>> a33189f (Restructuring)
+=======
+				FA4BE32B2C22C06000369DC7 /* Controller */,
+>>>>>>> ab9fdcd ([FIX] Restructuring Project)
 			);
 			path = goleki;
 			sourceTree = "<group>";
@@ -196,6 +191,30 @@
 				FAAC07D42C1847E90017C949 /* golekiUITestsLaunchTests.swift */,
 			);
 			path = golekiUITests;
+			sourceTree = "<group>";
+		};
+		FABCAA922C22CC9F00265995 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FAAC07B02C1847E80017C949 /* GameScene.sks */,
+				FAAC07B22C1847E80017C949 /* Actions.sks */,
+				FAAC07E62C18552C0017C949 /* MapScene.sks */,
+				FAAC07EB2C18566F0017C949 /* Background.sks */,
+				FA1BD64B2C1AD77600965F1A /* ResidenceScene.sks */,
+				FA1BD64F2C1AEF4D00965F1A /* InteriorAssetScene.sks */,
+				FAAC07B42C1847E80017C949 /* GameScene.swift */,
+				FA4BE3252C2277C900369DC7 /* MapScene.swift */,
+				FA4BE32C2C22C17A00369DC7 /* ResidenceScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FABCAA932C22CCC500265995 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				FA4BE3272C2277EC00369DC7 /* Person.swift */,
+			);
+			path = Nodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
