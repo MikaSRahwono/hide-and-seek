@@ -10,16 +10,16 @@
 		0443790C2C2186090052E49D /* EnvironmentTileSets.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0443790B2C2186090052E49D /* EnvironmentTileSets.sks */; };
 		0443790E2C2187DB0052E49D /* EnvironmentScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0443790D2C2187DB0052E49D /* EnvironmentScene.sks */; };
 		044379102C2193AA0052E49D /* ExampleTile.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0443790F2C2193AA0052E49D /* ExampleTile.sks */; };
-		FA38B10E2C22DB180029F882 /* ResidenceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA38B10D2C22DB180029F882 /* ResidenceScene.sks */; };
-		FA38B1102C22DB1F0029F882 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA38B10F2C22DB1F0029F882 /* MapScene.sks */; };
-		FA38B1122C22DBE20029F882 /* Background.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA38B1112C22DBE20029F882 /* Background.sks */; };
+		FA38B10E2C22DB180029F882 /* ResidenceScene 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA38B10D2C22DB180029F882 /* ResidenceScene 2.sks */; };
+		FA38B1102C22DB1F0029F882 /* MapScene 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA38B10F2C22DB1F0029F882 /* MapScene 2.sks */; };
+		FA38B1122C22DBE20029F882 /* Background 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA38B1112C22DBE20029F882 /* Background 2.sks */; };
 		FA4BE3262C2277C900369DC7 /* MapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BE3252C2277C900369DC7 /* MapScene.swift */; };
 		FA4BE3282C2277F100369DC7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BE3272C2277EC00369DC7 /* Person.swift */; };
 		FA4BE32A2C22782800369DC7 /* ContactHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BE3292C22782800369DC7 /* ContactHelper.swift */; };
 		FA4BE32D2C22C17F00369DC7 /* ResidenceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BE32C2C22C17A00369DC7 /* ResidenceScene.swift */; };
-		FA71B6BF2C22DA6E001B0B46 /* InteriorAssetScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA71B6BE2C22DA6E001B0B46 /* InteriorAssetScene.sks */; };
-		FA71B6C12C22DA8D001B0B46 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA71B6C02C22DA8D001B0B46 /* Actions.sks */; };
-		FA71B6C32C22DA92001B0B46 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA71B6C22C22DA92001B0B46 /* GameScene.sks */; };
+		FA71B6BF2C22DA6E001B0B46 /* InteriorAssetScene 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA71B6BE2C22DA6E001B0B46 /* InteriorAssetScene 2.sks */; };
+		FA71B6C12C22DA8D001B0B46 /* Actions 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA71B6C02C22DA8D001B0B46 /* Actions 2.sks */; };
+		FA71B6C32C22DA92001B0B46 /* GameScene 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA71B6C22C22DA92001B0B46 /* GameScene 2.sks */; };
 		FAAC07AF2C1847E80017C949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07AE2C1847E80017C949 /* AppDelegate.swift */; };
 		FAAC07B52C1847E80017C949 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07B42C1847E80017C949 /* GameScene.swift */; };
 		FAAC07B72C1847E80017C949 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAC07B62C1847E80017C949 /* GameViewController.swift */; };
@@ -52,16 +52,16 @@
 		0443790B2C2186090052E49D /* EnvironmentTileSets.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EnvironmentTileSets.sks; sourceTree = "<group>"; };
 		0443790D2C2187DB0052E49D /* EnvironmentScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EnvironmentScene.sks; sourceTree = "<group>"; };
 		0443790F2C2193AA0052E49D /* ExampleTile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExampleTile.sks; sourceTree = "<group>"; };
-		FA38B10D2C22DB180029F882 /* ResidenceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ResidenceScene.sks; sourceTree = "<group>"; };
-		FA38B10F2C22DB1F0029F882 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
-		FA38B1112C22DBE20029F882 /* Background.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Background.sks; sourceTree = "<group>"; };
+		FA38B10D2C22DB180029F882 /* ResidenceScene 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "ResidenceScene 2.sks"; sourceTree = "<group>"; };
+		FA38B10F2C22DB1F0029F882 /* MapScene 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "MapScene 2.sks"; sourceTree = "<group>"; };
+		FA38B1112C22DBE20029F882 /* Background 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Background 2.sks"; sourceTree = "<group>"; };
 		FA4BE3252C2277C900369DC7 /* MapScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
 		FA4BE3272C2277EC00369DC7 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		FA4BE3292C22782800369DC7 /* ContactHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHelper.swift; sourceTree = "<group>"; };
 		FA4BE32C2C22C17A00369DC7 /* ResidenceScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidenceScene.swift; sourceTree = "<group>"; };
-		FA71B6BE2C22DA6E001B0B46 /* InteriorAssetScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = InteriorAssetScene.sks; sourceTree = "<group>"; };
-		FA71B6C02C22DA8D001B0B46 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		FA71B6C22C22DA92001B0B46 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		FA71B6BE2C22DA6E001B0B46 /* InteriorAssetScene 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "InteriorAssetScene 2.sks"; sourceTree = "<group>"; };
+		FA71B6C02C22DA8D001B0B46 /* Actions 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Actions 2.sks"; sourceTree = "<group>"; };
+		FA71B6C22C22DA92001B0B46 /* GameScene 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "GameScene 2.sks"; sourceTree = "<group>"; };
 		FAAC07AB2C1847E80017C949 /* goleki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goleki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAC07AE2C1847E80017C949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAC07B42C1847E80017C949 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -132,21 +132,12 @@
 		FAAC07AD2C1847E80017C949 /* goleki */ = {
 			isa = PBXGroup;
 			children = (
-				FA38B1112C22DBE20029F882 /* Background.sks */,
-				FA38B10F2C22DB1F0029F882 /* MapScene.sks */,
-				FA38B10D2C22DB180029F882 /* ResidenceScene.sks */,
-				FA71B6C22C22DA92001B0B46 /* GameScene.sks */,
-				FA71B6C02C22DA8D001B0B46 /* Actions.sks */,
-				FA71B6BE2C22DA6E001B0B46 /* InteriorAssetScene.sks */,
 				FABCAA932C22CCC500265995 /* Nodes */,
 				FABCAA922C22CC9F00265995 /* Scenes */,
 				FAAC07AE2C1847E80017C949 /* AppDelegate.swift */,
 				FAAC07B82C1847E80017C949 /* Main.storyboard */,
 				FAAC07BB2C1847E90017C949 /* Assets.xcassets */,
 				FAAC07BD2C1847E90017C949 /* LaunchScreen.storyboard */,
-				0443790F2C2193AA0052E49D /* ExampleTile.sks */,
-				0443790B2C2186090052E49D /* EnvironmentTileSets.sks */,
-				0443790D2C2187DB0052E49D /* EnvironmentScene.sks */,
 				FA4BE3292C22782800369DC7 /* ContactHelper.swift */,
 				FA4BE32B2C22C06000369DC7 /* Controller */,
 			);
@@ -176,6 +167,15 @@
 				FAAC07B42C1847E80017C949 /* GameScene.swift */,
 				FA4BE3252C2277C900369DC7 /* MapScene.swift */,
 				FA4BE32C2C22C17A00369DC7 /* ResidenceScene.swift */,
+				FA38B1112C22DBE20029F882 /* Background 2.sks */,
+				FA38B10F2C22DB1F0029F882 /* MapScene 2.sks */,
+				FA38B10D2C22DB180029F882 /* ResidenceScene 2.sks */,
+				FA71B6C22C22DA92001B0B46 /* GameScene 2.sks */,
+				FA71B6C02C22DA8D001B0B46 /* Actions 2.sks */,
+				FA71B6BE2C22DA6E001B0B46 /* InteriorAssetScene 2.sks */,
+				0443790F2C2193AA0052E49D /* ExampleTile.sks */,
+				0443790B2C2186090052E49D /* EnvironmentTileSets.sks */,
+				0443790D2C2187DB0052E49D /* EnvironmentScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -292,18 +292,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA38B10E2C22DB180029F882 /* ResidenceScene.sks in Resources */,
-				FA71B6BF2C22DA6E001B0B46 /* InteriorAssetScene.sks in Resources */,
+				FA38B10E2C22DB180029F882 /* ResidenceScene 2.sks in Resources */,
+				FA71B6BF2C22DA6E001B0B46 /* InteriorAssetScene 2.sks in Resources */,
 				FAAC07BA2C1847E80017C949 /* Base in Resources */,
 				FAAC07BC2C1847E90017C949 /* Assets.xcassets in Resources */,
-				FA71B6C32C22DA92001B0B46 /* GameScene.sks in Resources */,
+				FA71B6C32C22DA92001B0B46 /* GameScene 2.sks in Resources */,
 				0443790C2C2186090052E49D /* EnvironmentTileSets.sks in Resources */,
 				044379102C2193AA0052E49D /* ExampleTile.sks in Resources */,
 				0443790E2C2187DB0052E49D /* EnvironmentScene.sks in Resources */,
 				FAAC07BF2C1847E90017C949 /* Base in Resources */,
-				FA38B1122C22DBE20029F882 /* Background.sks in Resources */,
-				FA71B6C12C22DA8D001B0B46 /* Actions.sks in Resources */,
-				FA38B1102C22DB1F0029F882 /* MapScene.sks in Resources */,
+				FA38B1122C22DBE20029F882 /* Background 2.sks in Resources */,
+				FA71B6C12C22DA8D001B0B46 /* Actions 2.sks in Resources */,
+				FA38B1102C22DB1F0029F882 /* MapScene 2.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

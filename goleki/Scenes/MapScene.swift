@@ -27,7 +27,7 @@ class MapScene: SKScene {
                 let reveal = SKTransition.flipHorizontal(withDuration: 1)
                 switch (level) {
                 case 1:
-                    let scene = ResidenceScene(fileNamed: "ResidenceScene")!
+                    let scene = ResidenceScene(fileNamed: "EnvironmentScene")!
                     scene.level = level
                     scene.sandCount = 7
                     scene.scaleMode = .aspectFill
