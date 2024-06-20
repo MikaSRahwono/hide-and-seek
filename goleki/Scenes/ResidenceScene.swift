@@ -69,28 +69,7 @@ class ResidenceScene: SKScene {
             }
         }
         
-        for node in self.children {
-            if node.name == "buttonLeft"{
-                leftButton = node
-                leftButton.position.x = leftButton.position.x + cam.position.x
-            }
-            
-            if node.name == "buttonRight"{
-                rightButton = node
-                rightButton.position.x = rightButton.position.x + cam.position.x
-            }
-            
-            if node.name == "buttonUp"{
-                upButton = node
-                upButton.position.x = upButton.position.x + cam.position.x
-            }
-            
-            if node.name == "buttonDown" && !gameover {
-                downButton = node
-                downButton.position.x = downButton.position.x + cam.position.x
-            }
-        }
-        
+//        
 //        for node in self.children {
 //            if (node.name == "map.walls"){
 //                if let someTileMap: SKTileMapNode = node as? SKTileMapNode {
@@ -124,6 +103,35 @@ class ResidenceScene: SKScene {
         
         actionButton = childNode(withName: "actionButton") as! SKSpriteNode
 //        closeButton = childNode(withName: "buttonClose") as! SKSpriteNode
+        
+        
+
+        
+        for node in self.children {
+            if node.name == "buttonLeft" && !gameover {
+//                    run(walkingSound)
+                leftButton = node
+                herMovesLeft = true
+            }
+            
+            if node.name == "buttonRight" && !gameover {
+//                    run(walkingSound)
+                rightButton = node
+                herMovesRight = true
+            }
+            
+            if node.name == "buttonUp" && !gameover {
+//                    run(walkingSound)
+                upButton = node
+                herMovesUp = true
+            }
+            
+            if node.name == "buttonDown" && !gameover {
+//                    run(walkingSound)
+                downButton = node
+                herMovesDown = true
+            }
+        }
     }
     
     func giveTileMapPhysicsBody(map: SKTileMapNode, parentScale: CGFloat, zPos: CGFloat, parentTileMap: SKTileMapNode) {
@@ -322,40 +330,24 @@ class ResidenceScene: SKScene {
             person.position.x += 5
             xDirection = 1
             isTouchEnded = false
-            rightButton.position.x += 5
-            leftButton.position.x += 5
-            downButton.position.x += 5
-            upButton.position.x += 5
         }
         
         if herMovesLeft == true {
             person.position.x -= 5
             xDirection = -1
             isTouchEnded = false
-            rightButton.position.x -= 5
-            leftButton.position.x -= 5
-            downButton.position.x -= 5
-            upButton.position.x -= 5
         }
         
         if herMovesUp == true {
             person.position.y += 5
             yDirection = 1
             isTouchEnded = false
-            rightButton.position.y += 5
-            leftButton.position.y += 5
-            downButton.position.y += 5
-            upButton.position.y += 5
         }
         
         if herMovesDown == true {
             person.position.y -= 5
             yDirection = -1
             isTouchEnded = false
-            rightButton.position.y -= 5
-            leftButton.position.y -= 5
-            downButton.position.y -= 5
-            upButton.position.y -= 5
         }
         
         if !herMovesUp && !herMovesDown && !herMovesLeft && !herMovesRight {
@@ -372,6 +364,53 @@ class ResidenceScene: SKScene {
         physicsBody = ray
         lastRayPos = rayPos
         
-        cam.position = person.position
+        if person.position.x > 340 {
+            cam.position = CGPoint(x: 340, y: person.position.y)
+            if person.position.y > 535 {
+                cam.position = CGPoint(x: 340, y: 540)
+            } else if person.position.y < -680 {
+                cam.position = CGPoint(x: 340, y: -680)
+            }
+        } else if person.position.x < -298 {
+            cam.position = CGPoint(x: -298, y: person.position.y)
+            if person.position.y > 540 {
+                cam.position = CGPoint(x: -298, y: 540)
+            } else if person.position.y < -680 {
+                cam.position = CGPoint(x: -298, y: -680)
+            }
+        } else if person.position.y > 540 {
+            cam.position = CGPoint(x: person.position.x, y: 540)
+            if person.position.x > 340 {
+                cam.position = CGPoint(x: 340, y: 540)
+            } else if person.position.x < -298 {
+                cam.position = CGPoint(x: -298, y: 540)
+            }
+        } else if person.position.y < -680 {
+            cam.position = CGPoint(x: person.position.x, y: -680)
+            if person.position.x > 340 {
+                cam.position = CGPoint(x: 340, y: -680)
+            } else if person.position.x < -298 {
+                cam.position = CGPoint(x: -298, y: -680)
+            }
+        } else {
+            cam.position = person.position
+        }
+        
+        leftButton.position.x = cam.position.x - 560
+        leftButton.position.y = cam.position.y - 175
+        rightButton.position.x = cam.position.x - 390
+        rightButton.position.y = cam.position.y - 175
+        upButton.position.x = cam.position.x - 475
+        upButton.position.y = cam.position.y - 90
+        downButton.position.x = cam.position.x - 475
+        downButton.position.y = cam.position.y - 260
+        actionButton.position.x = cam.position.x + 475
+        actionButton.position.y = cam.position.y - 175
+        
+        person.zPosition = 99999
+        leftButton.zPosition = 99999
+        rightButton.zPosition = 99999
+        upButton.zPosition = 99999
+        downButton.zPosition = 99999
     }
 }
