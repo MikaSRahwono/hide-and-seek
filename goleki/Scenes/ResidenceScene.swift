@@ -11,12 +11,12 @@ import GameplayKit
 class ResidenceScene: SKScene {
     
     var person: Person!
-    var highlight = SKSpriteNode()
-    var treasure = SKSpriteNode()
-    var bomb = SKSpriteNode()
-    var actionButton = SKSpriteNode()
-    var closeButton = SKSpriteNode()
-    var zonkArray = [SKSpriteNode]()
+    let cam = SKCameraNode()
+    var leftButton = SKNode()
+    var rightButton = SKNode()
+    var downButton = SKNode()
+    var upButton = SKNode()
+    var actionButton = SKNode()
     var ray: SKPhysicsBody!
     var sandArray = [SKSpriteNode]()
     
@@ -42,25 +42,74 @@ class ResidenceScene: SKScene {
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
+        print("masuk kesini")
+        self.camera = cam
         
-        for node in self.children {
-            if (node.name == "walls"){
-                if let someTileMap: SKTileMapNode = node as? SKTileMapNode {
-                    giveTileMapPhysicsBody(map: someTileMap)
-
-                    someTileMap.removeFromParent()
+        if let mapNode = self.childNode(withName: "map") as? SKTileMapNode {
+            mapNode.setScale(3)
+            var zPos: CGFloat = 1
+            for node in mapNode.children {
+                var scale: CGFloat = 1 * mapNode.xScale
+                if node.name == "Bridges"{
+                    scale = 1.75 * mapNode.xScale
                 }
-            }
-            
-            if (node.name == "floor") {
-                if let someTileMap: SKTileMapNode = node as? SKTileMapNode {
-                    giveTileMapPhysicsBody(map: someTileMap)
-                    
-                    someTileMap.removeFromParent()
+                zPos += 1
+                if let tileMap: SKTileMapNode = node as? SKTileMapNode {
+                    for childChildNode in tileMap.children {
+                        zPos += 1
+                        if let childTileMap: SKTileMapNode = childChildNode as? SKTileMapNode {
+                            giveTileMapPhysicsBody(map: childTileMap, parentScale: scale, zPos: zPos, parentTileMap: tileMap)
+                            childTileMap.removeFromParent()
+                        }
+                    }
+                    zPos += 1
+                    giveTileMapPhysicsBody(map: tileMap, parentScale: scale, zPos: zPos, parentTileMap: tileMap)
+                    tileMap.removeFromParent()
                 }
-                break
             }
         }
+        
+        for node in self.children {
+            if node.name == "buttonLeft"{
+                leftButton = node
+                leftButton.position.x = leftButton.position.x + cam.position.x
+            }
+            
+            if node.name == "buttonRight"{
+                rightButton = node
+                rightButton.position.x = rightButton.position.x + cam.position.x
+            }
+            
+            if node.name == "buttonUp"{
+                upButton = node
+                upButton.position.x = upButton.position.x + cam.position.x
+            }
+            
+            if node.name == "buttonDown" && !gameover {
+                downButton = node
+                downButton.position.x = downButton.position.x + cam.position.x
+            }
+        }
+        
+//        for node in self.children {
+//            if (node.name == "map.walls"){
+//                if let someTileMap: SKTileMapNode = node as? SKTileMapNode {
+//                    print("masuk kesini")
+//                    giveTileMapPhysicsBody(map: someTileMap)
+//
+//                    someTileMap.removeFromParent()
+//                }
+//            }
+//            
+//            if (node.name == "floor") {
+//                if let someTileMap: SKTileMapNode = node as? SKTileMapNode {
+//                    giveTileMapPhysicsBody(map: someTileMap)
+//                    
+//                    someTileMap.removeFromParent()
+//                }
+//                break
+//            }
+//        }
         
         addObject()
     }
@@ -70,18 +119,20 @@ class ResidenceScene: SKScene {
         person.setup()
         lastRayPos = CGPoint(x: person.position.x + 70, y: person.position.y)
         
+        
 //        highlight = childNode(withName: "highlited") as! SKSpriteNode
         
         actionButton = childNode(withName: "actionButton") as! SKSpriteNode
 //        closeButton = childNode(withName: "buttonClose") as! SKSpriteNode
     }
     
-    func giveTileMapPhysicsBody(map: SKTileMapNode) {
+    func giveTileMapPhysicsBody(map: SKTileMapNode, parentScale: CGFloat, zPos: CGFloat, parentTileMap: SKTileMapNode) {
         let tileMap = map
-        let startLocation: CGPoint = tileMap.position
+        let startLocation: CGPoint = parentTileMap.position
         let tileSize = tileMap.tileSize
-        let halfWidth = CGFloat(tileMap.numberOfColumns) / 2.0 * tileSize.width
-        let halfHeight = CGFloat(tileMap.numberOfRows) / 2.0 * tileSize.height
+        let scaledTileSize = CGSize(width: tileSize.width * parentScale, height: tileSize.height * parentScale)
+        let halfWidth = CGFloat(tileMap.numberOfColumns) / 2.0 * scaledTileSize.width
+        let halfHeight = CGFloat(tileMap.numberOfRows) / 2.0 * scaledTileSize.height
         
         for col in 0..<tileMap.numberOfColumns {
             for row in 0..<tileMap.numberOfRows {
@@ -90,20 +141,22 @@ class ResidenceScene: SKScene {
                     
                     let tileArray = tileDefinition.textures
                     let tileTextures = tileArray[0]
-                    let x = CGFloat(col) * tileSize.width - halfWidth + ( tileSize.width / 2 )
-                    let y = CGFloat(row) * tileSize.height - halfHeight + ( tileSize.height / 2 )
+                    let x = CGFloat(col) * scaledTileSize.width - halfWidth + (scaledTileSize.width / 2)
+                    let y = CGFloat(row) * scaledTileSize.height - halfHeight + (scaledTileSize.height / 2)
                     
                     let tileNode = SKSpriteNode(texture: tileTextures)
                     tileNode.position = CGPoint(x: x, y: y)
-                    tileNode.size = CGSize(width: 80, height: 80)
-                    tileNode.physicsBody = SKPhysicsBody(texture: tileTextures, size: CGSize(width: 80, height: 80))
+                    tileNode.size = scaledTileSize
+                    tileNode.physicsBody = SKPhysicsBody(texture: tileTextures, size: scaledTileSize)
+                    print("masuk")
                     
                     if tileMap.name == "walls" {
                         tileNode.physicsBody?.categoryBitMask = bitMask.walls.rawValue
                         tileNode.physicsBody?.contactTestBitMask = 0
                         tileNode.physicsBody?.collisionBitMask = bitMask.person.rawValue
+                        print("walls_collisions")
                     }
-                    else if tileMap.name == "floor" {
+                    else {
                         tileNode.physicsBody?.categoryBitMask = bitMask.floor.rawValue
                         tileNode.physicsBody?.contactTestBitMask = bitMask.raycast.rawValue
                         tileNode.physicsBody?.collisionBitMask = 0
@@ -113,9 +166,9 @@ class ResidenceScene: SKScene {
                     tileNode.physicsBody?.affectedByGravity = false
                     tileNode.physicsBody?.isDynamic = false
                     tileNode.physicsBody?.friction = 1
-                    tileNode.zPosition = 5
+                    tileNode.zPosition = zPos
                     
-                    tileNode.position = CGPoint(x: tileNode.position.x + startLocation.x, y: tileNode.position.y + startLocation.y)
+                    tileNode.position = CGPoint(x: tileNode.position.x + startLocation.x * parentScale, y: tileNode.position.y  + startLocation.y * parentScale)
                     self.addChild(tileNode)
                 }
             }
@@ -243,19 +296,19 @@ class ResidenceScene: SKScene {
 //                    }
                 }
                 
-                if closeButton.contains(position) {
-                    run(SKAction.sequence([
-                        SKAction.wait(forDuration: 0.5),
-                        SKAction.run() { [weak self] in
-                            guard let `self` = self else { return }
-                            let reveal = SKTransition.fade(withDuration: 0.5)
-                            let scene = GameScene(fileNamed: "GameScene")
-                            scene!.size = view!.bounds.size
-                            scene!.scaleMode = .aspectFill
-                            self.view?.presentScene(scene!, transition:reveal)
-                        }
-                    ]))
-                }
+//                if closeButton.contains(position) {
+//                    run(SKAction.sequence([
+//                        SKAction.wait(forDuration: 0.5),
+//                        SKAction.run() { [weak self] in
+//                            guard let `self` = self else { return }
+//                            let reveal = SKTransition.fade(withDuration: 0.5)
+//                            let scene = GameScene(fileNamed: "GameScene")
+//                            scene!.size = view!.bounds.size
+//                            scene!.scaleMode = .aspectFill
+//                            self.view?.presentScene(scene!, transition:reveal)
+//                        }
+//                    ]))
+//                }
             }
         }
     }
@@ -269,24 +322,40 @@ class ResidenceScene: SKScene {
             person.position.x += 5
             xDirection = 1
             isTouchEnded = false
+            rightButton.position.x += 5
+            leftButton.position.x += 5
+            downButton.position.x += 5
+            upButton.position.x += 5
         }
         
         if herMovesLeft == true {
             person.position.x -= 5
             xDirection = -1
             isTouchEnded = false
+            rightButton.position.x -= 5
+            leftButton.position.x -= 5
+            downButton.position.x -= 5
+            upButton.position.x -= 5
         }
         
         if herMovesUp == true {
             person.position.y += 5
             yDirection = 1
             isTouchEnded = false
+            rightButton.position.y += 5
+            leftButton.position.y += 5
+            downButton.position.y += 5
+            upButton.position.y += 5
         }
         
         if herMovesDown == true {
             person.position.y -= 5
             yDirection = -1
             isTouchEnded = false
+            rightButton.position.y -= 5
+            leftButton.position.y -= 5
+            downButton.position.y -= 5
+            upButton.position.y -= 5
         }
         
         if !herMovesUp && !herMovesDown && !herMovesLeft && !herMovesRight {
@@ -302,5 +371,7 @@ class ResidenceScene: SKScene {
         ray.collisionBitMask = bitMask.walls.rawValue
         physicsBody = ray
         lastRayPos = rayPos
+        
+        cam.position = person.position
     }
 }

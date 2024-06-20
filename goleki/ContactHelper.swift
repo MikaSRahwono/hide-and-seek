@@ -20,13 +20,16 @@ extension ResidenceScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         let bitmaskA = contact.bodyA.categoryBitMask
         let bitmaskB = contact.bodyB.categoryBitMask
+        print("kesini")
         
         if (bitmaskA == bitMask.raycast.rawValue && bitmaskB == bitMask.floor.rawValue && !isTouchEnded) {
-            highlight.position = contact.bodyB.node!.position
+//            highlight.position = contact.bodyB.node!.position
+            print("kesini2")
             isTouchEnded = false
             
         } else if (bitmaskA == bitMask.floor.rawValue && bitmaskB == bitMask.raycast.rawValue && !isTouchEnded) {
-            highlight.position = contact.bodyA.node!.position
+//            highlight.position = contact.bodyA.node!.position
+            print("kesini3")
             isTouchEnded = false
         }
     }

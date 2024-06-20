@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let scene = GameScene(fileNamed: "GameScene")
+        let scene = GameScene(fileNamed: "GameScene 2")
         scene!.size = view.bounds.size
         scene!.scaleMode = .aspectFill
         
