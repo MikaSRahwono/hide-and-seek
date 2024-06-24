@@ -7,6 +7,8 @@
 
 import SpriteKit
 import GameplayKit
+import UIKit
+import GameKit
 
 class GameScene: SKScene {
     var button = SKSpriteNode()
@@ -39,3 +41,8 @@ extension GameScene {
         button.zPosition = 10
     }
 }
+
+func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController) {
+    gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+
