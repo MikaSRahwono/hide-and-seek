@@ -7,11 +7,14 @@
 
 import SpriteKit
 import GameplayKit
+import GameKit
 
 class ResidenceScene: SKScene {
     
     var person: Person!
     var seeker: Seeker!
+    
+    var match: GKMatch?
     
     var isHider: Bool!
     
@@ -49,6 +52,8 @@ class ResidenceScene: SKScene {
     var foundHiders: Int = 0
     
     var isTouchEnded: Bool = false
+    
+    private var gameModel: GameModel!
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -128,6 +133,31 @@ class ResidenceScene: SKScene {
         }
         for hider in hiderPlayerMap {
             self.addChild(hider)
+        }
+    }
+    
+    private func savePlayers() {
+        guard let player2Name = match?.players.first?.displayName else { return }
+        let player1 = Player(displayName: GKLocalPlayer.local.displayName)
+        let player2 = Player(displayName: player2Name)
+        
+        gameModel.players = [player1, player2]
+        
+        gameModel.players.sort { (player1, player2) -> Bool in
+            player1.displayName < player2.displayName
+        }
+        
+        sendData()
+    }
+    
+    private func sendData() {
+        guard let match = match else { return }
+        
+        do {
+            guard let data = gameModel.encode() else { return }
+            try match.sendData(toAllPlayers: data, with: .reliable)
+        } catch {
+            print("Send data failed")
         }
     }
     

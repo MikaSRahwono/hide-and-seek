@@ -23,7 +23,7 @@ class Person: SKSpriteNode {
     }
     
     func hide(object: Object) {
-        if let personHiding = object.person {
+        if object.person != nil {
           return
         } else {
             self.hidingObject = object
