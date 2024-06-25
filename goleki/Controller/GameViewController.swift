@@ -38,8 +38,8 @@ class GameViewController: UIViewController {
 //        viewModel.setupMultiplayer()
         skView.presentScene(scene)
         
-        viewModel.viewController = self
-                viewModel.setupMultiplayer()
+//        viewModel.viewController = self
+//                viewModel.setupMultiplayer()
 //                viewModel.positionUpdateHandler = { [weak self] in
 //                    self?.updatePlayerPositions()
 //                }

@@ -13,15 +13,16 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var buttonMultiplayer: UIButton!
     
     private var gameCenterHelper: GameCenterHelper!
-    
+    var viewModel = GameViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonMultiplayer.isEnabled = false
         buttonMultiplayer.layer.cornerRadius = 10
-        
-        gameCenterHelper = GameCenterHelper()
-        gameCenterHelper.delegate = self
-        gameCenterHelper.authenticatePlayer()
+        viewModel.viewController = self
+                viewModel.setupMultiplayer()
+//        gameCenterHelper = GameCenterHelper()
+//        gameCenterHelper.delegate = self
+//        gameCenterHelper.authenticatePlayer()
     }
 
     @IBAction func buttonMultiplayerPressed() {

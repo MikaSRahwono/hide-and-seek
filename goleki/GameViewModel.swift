@@ -127,7 +127,7 @@ extension GameViewModel: GKMatchmakerViewControllerDelegate {
         showMatchmaker = false
     }
     
-    func matchmakerViewController(_ viewController: GKMatchmakerViewController, didReceiveAcceptFromRemotePlayer player: GKPlayer) {lee f ,,j
+    func matchmakerViewController(_ viewController: GKMatchmakerViewController, didReceiveAcceptFromRemotePlayer player: GKPlayer) {
         print("Player \(player.displayName) accepted the match")
     }
 }
