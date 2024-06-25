@@ -12,7 +12,7 @@ import AVFAudio
 import GameKit
 
 class GameViewController: UIViewController {
-    
+    var viewModel = GameViewModel()
     var audioPlayer = AVAudioPlayer()
     var match: GKMatch?
     func authenticateLocalPlayer() {
@@ -35,8 +35,16 @@ class GameViewController: UIViewController {
         
         let skView = view as! SKView
         skView.ignoresSiblingOrder = true
+//        viewModel.setupMultiplayer()
         skView.presentScene(scene)
-        authenticateLocalPlayer()
+        
+        viewModel.viewController = self
+                viewModel.setupMultiplayer()
+//                viewModel.positionUpdateHandler = { [weak self] in
+//                    self?.updatePlayerPositions()
+//                }
+        
+//        authenticateLocalPlayer()
 //        skView.showsPhysics = true
         
 //        playSaveSound()

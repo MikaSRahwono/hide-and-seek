@@ -112,6 +112,8 @@ class ResidenceScene: SKScene, GKMatchDelegate {
         hider = childNode(withName: "Hider") as? Hider
         seeker = childNode(withName: "Seeker") as? Seeker
         
+        print(match?.players ?? "error!!!")
+        
         if let player2Name = match?.players.first?.displayName {
             let player1 = Player(displayName: GKLocalPlayer.local.displayName, position: hider.position, role: PlayerRole.hider, isFound: false)
             hider.player = player1

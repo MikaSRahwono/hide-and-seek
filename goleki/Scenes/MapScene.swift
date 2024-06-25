@@ -10,6 +10,7 @@
 import SpriteKit
 
 class MapScene: SKScene {
+    var viewModel = GameViewModel()
     init(size: CGSize, level: Int) {
         super.init(size: size)
         
@@ -28,6 +29,7 @@ class MapScene: SKScene {
                 switch (level) {
                 case 1:
                     let scene = ResidenceScene(fileNamed: "EnvironmentScene")!
+                    scene.match = viewModel.match
                     scene.level = level
                     scene.sandCount = 7
                     scene.scaleMode = .aspectFill
