@@ -9,32 +9,34 @@ import SpriteKit
 
 class Object {
     
-    var person: Person!
+    var item: Item!
+    var hider: Hider!
     var tileMapNode: SKTileMapNode
     
     init(tileMapNode: SKTileMapNode) {
         self.tileMapNode = tileMapNode
     }
     
-    func hide(person: Person) {
-        self.person = person
+    func hide(hider: Hider) {
+        self.hider = hider
     }
     
     func isAvailable() -> Bool{
-        if person != nil {
+        if hider != nil {
             return false
         }
         return true
     }
     
     func exit() {
-        self.person = nil
+        self.hider = nil
     }
     
     func find() -> Bool! {
-        if let person = self.person {
-            person.found()
-            self.person = nil
+        if let hider = self.hider {
+            hider.found()
+            self.hider = nil
+            self.item.player = nil
             return true
         } else {
             return false
