@@ -20,7 +20,6 @@ extension ResidenceScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         let bitmaskA = contact.bodyA.categoryBitMask
         let bitmaskB = contact.bodyB.categoryBitMask
-        print("kesini")
         
         if (bitmaskA == bitMask.raycast.rawValue && bitmaskB == bitMask.floor.rawValue && !isTouchEnded) {
 //            highlight.position = contact.bodyB.node!.position
