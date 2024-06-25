@@ -9,26 +9,8 @@ import SpriteKit
 
 class Person: SKSpriteNode {
     
-    
-//    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-//        super.init(texture: texture, color: color, size: size)
-//
-//        physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 80, height: 80))
-//        physicsBody?.categoryBitMask = bitMask.person.rawValue
-//        physicsBody?.contactTestBitMask = bitMask.sand.rawValue
-//        physicsBody?.collisionBitMask = bitMask.wall.rawValue
-//        physicsBody?.allowsRotation = false
-//        physicsBody?.affectedByGravity = false
-//    }
-//
-////    convenience init(imageNamed name: String) {
-////        let texture = SKTexture(imageNamed: name)
-////        self.init(texture: texture, color: .white, size: texture.size())
-////    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("error")
-//    }
+    var hidingObject: Object!
+    var isFound: Bool!
     
     func setup() {
         physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 80, height: 80))
@@ -37,5 +19,25 @@ class Person: SKSpriteNode {
         physicsBody?.collisionBitMask = bitMask.walls.rawValue
         physicsBody?.allowsRotation = false
         physicsBody?.affectedByGravity = false
+        isFound = false
+    }
+    
+    func hide(object: Object) {
+        if let personHiding = object.person {
+          return
+        } else {
+            self.hidingObject = object
+            object.hide(person: self)
+        }
+    }
+    
+    func exit() {
+        self.hidingObject.exit()
+        self.hidingObject = nil
+    }
+    
+    func found() {
+        self.isFound = true
+        self.hidingObject = nil
     }
 }

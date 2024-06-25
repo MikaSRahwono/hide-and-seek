@@ -11,14 +11,23 @@ import GameplayKit
 class ResidenceScene: SKScene {
     
     var person: Person!
+    var seeker: Seeker!
+    
+    var isHider: Bool!
+    
     let cam = SKCameraNode()
     var leftButton = SKNode()
     var rightButton = SKNode()
     var downButton = SKNode()
     var upButton = SKNode()
     var actionButton = SKNode()
+    var highlight = SKNode()
     var ray: SKPhysicsBody!
-    var sandArray = [SKSpriteNode]()
+    
+    var hiderPlayerMap: [Person] = []
+    var seekerPlayerMap: [Seeker] = []
+    var objectMap: [CGPoint: Object] = [:]
+    var hiderMap: [CGPoint: Person] = [:]
     
 //    let walkingSound = SKAction.playSoundFileNamed("walkingSFX.mp3", waitForCompletion: false)
 //    let bombSound = SKAction.playSoundFileNamed("bombSFX.mp3", waitForCompletion: false)
@@ -37,12 +46,13 @@ class ResidenceScene: SKScene {
     
     var sandCount: Int = 0
     var level: Int = 0
+    var foundHiders: Int = 0
     
     var isTouchEnded: Bool = false
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
-        print("masuk kesini")
+        isHider = true
         self.camera = cam
         
         if let mapNode = self.childNode(withName: "map") as? SKTileMapNode {
@@ -54,7 +64,16 @@ class ResidenceScene: SKScene {
                     scale = 1.75 * mapNode.xScale
                 }
                 zPos += 1
+
                 if let tileMap: SKTileMapNode = node as? SKTileMapNode {
+                    if tileMap.name == "object"{
+                        let position = CGPoint(x: ceil(tileMap.position.x * 3 / 100) * 100.0, y: ceil(tileMap.position.y * 3 / 100) * 100.0 )
+                        let object = Object(tileMapNode: tileMap)
+                        objectMap[position] = object
+                        giveTileMapPhysicsBody(map: tileMap, parentScale: scale, zPos: zPos, parentTileMap: tileMap)
+                        zPos += 1
+                        continue
+                    }
                     for childChildNode in tileMap.children {
                         zPos += 1
                         if let childTileMap: SKTileMapNode = childChildNode as? SKTileMapNode {
@@ -68,69 +87,47 @@ class ResidenceScene: SKScene {
                 }
             }
         }
-        
-//        
-//        for node in self.children {
-//            if (node.name == "map.walls"){
-//                if let someTileMap: SKTileMapNode = node as? SKTileMapNode {
-//                    print("masuk kesini")
-//                    giveTileMapPhysicsBody(map: someTileMap)
-//
-//                    someTileMap.removeFromParent()
-//                }
-//            }
-//            
-//            if (node.name == "floor") {
-//                if let someTileMap: SKTileMapNode = node as? SKTileMapNode {
-//                    giveTileMapPhysicsBody(map: someTileMap)
-//                    
-//                    someTileMap.removeFromParent()
-//                }
-//                break
-//            }
-//        }
-        
         addObject()
     }
     
     func addObject() {
-        person = childNode(withName: "Person") as? Person
-        person.setup()
+        if isHider {
+            person = childNode(withName: "Person") as? Person
+            person.setup()
+        } else {
+            seeker = childNode(withName: "Seeker") as? Seeker
+            seeker.setup()
+        }
         lastRayPos = CGPoint(x: person.position.x + 70, y: person.position.y)
-        
-        
-//        highlight = childNode(withName: "highlited") as! SKSpriteNode
-        
         actionButton = childNode(withName: "actionButton") as! SKSpriteNode
-//        closeButton = childNode(withName: "buttonClose") as! SKSpriteNode
-        
-        
-
         
         for node in self.children {
             if node.name == "buttonLeft" && !gameover {
-//                    run(walkingSound)
                 leftButton = node
                 herMovesLeft = true
             }
             
             if node.name == "buttonRight" && !gameover {
-//                    run(walkingSound)
                 rightButton = node
                 herMovesRight = true
             }
             
             if node.name == "buttonUp" && !gameover {
-//                    run(walkingSound)
                 upButton = node
                 herMovesUp = true
             }
             
             if node.name == "buttonDown" && !gameover {
-//                    run(walkingSound)
                 downButton = node
                 herMovesDown = true
             }
+        }
+        
+        for seeker in seekerPlayerMap {
+            self.addChild(seeker)
+        }
+        for hider in hiderPlayerMap {
+            self.addChild(hider)
         }
     }
     
@@ -156,19 +153,20 @@ class ResidenceScene: SKScene {
                     tileNode.position = CGPoint(x: x, y: y)
                     tileNode.size = scaledTileSize
                     tileNode.physicsBody = SKPhysicsBody(texture: tileTextures, size: scaledTileSize)
-                    print("masuk")
                     
                     if tileMap.name == "walls" {
                         tileNode.physicsBody?.categoryBitMask = bitMask.walls.rawValue
                         tileNode.physicsBody?.contactTestBitMask = 0
                         tileNode.physicsBody?.collisionBitMask = bitMask.person.rawValue
-                        print("walls_collisions")
+                    } else if tileMap.name == "object" {
+                        tileNode.physicsBody?.categoryBitMask = bitMask.walls.rawValue
+                        tileNode.physicsBody?.contactTestBitMask = 0
+                        tileNode.physicsBody?.collisionBitMask = bitMask.person.rawValue
                     }
                     else {
                         tileNode.physicsBody?.categoryBitMask = bitMask.floor.rawValue
                         tileNode.physicsBody?.contactTestBitMask = bitMask.raycast.rawValue
                         tileNode.physicsBody?.collisionBitMask = 0
-                        sandArray.append(tileNode)
                     }
                     
                     tileNode.physicsBody?.affectedByGravity = false
@@ -177,6 +175,7 @@ class ResidenceScene: SKScene {
                     tileNode.zPosition = zPos
                     
                     tileNode.position = CGPoint(x: tileNode.position.x + startLocation.x * parentScale, y: tileNode.position.y  + startLocation.y * parentScale)
+                    
                     self.addChild(tileNode)
                 }
             }
@@ -223,100 +222,39 @@ class ResidenceScene: SKScene {
                     herMovesDown = false
                     herMovesLeft = false
                     herMovesRight = false
-                    
-//                    if actionButton.contains(position) && !gameover {
-//                        let highlightPosition = CGPoint(x: round(highlight.position.x * 10) / 10.0, y: round(highlight.position.y * 10) / 10.0 )
-//                        let bombPosition = CGPoint(x: round(bombPos.x * 10) / 10.0, y: round(bombPos.y * 10) / 10.0)
-//                        let treasurePosition = CGPoint(x: round(treasurePos.x * 10) / 10.0, y: round(treasurePos.y * 10) / 10.0)
-//
-//                        if highlightPosition == treasurePosition {
-//                            let generator = UIImpactFeedbackGenerator(style: .medium)
-//                            generator.impactOccurred()
-//                            self.run(SKAction.sequence([
-//                                SKAction.run { [self] in
-//                                    self.treasure.texture = SKTexture(imageNamed: "treasure_close")
-//                                    self.treasure.isHidden = false
-//                                },
-//                                SKAction.wait(forDuration: 0.1),
-//                                SKAction.run { [self] in
-//                                    self.treasure.texture = SKTexture(imageNamed: "treasure_open_little")
-//                                },
-//                                SKAction.wait(forDuration: 0.1),
-//                                SKAction.run { [self] in
-//                                    self.treasure.texture = SKTexture(imageNamed: "treasure_open_half")
-//                                },
-//                                SKAction.wait(forDuration: 0.1),
-//                                SKAction.run { [self] in
-//                                    self.treasure.texture = SKTexture(imageNamed: "Treasure")
-//                                },
-//                                SKAction.wait(forDuration: 0.2)
-//                            ]))
-//                            gameover = true
-//                            level += 1
-//                            run(SKAction.sequence([
-//                                chestSound,
-//                                SKAction.wait(forDuration: 1.0),
-//                                SKAction.run() { [weak self] in
-//                                    guard let `self` = self else { return }
-//                                    let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-//
-//                                    let levelScene = LevelScene(size: view!.bounds.size, level: level)
-//                                    let creditScene = CreditScene(size: view!.bounds.size, titleName: "Thank You For Playing")
-//
-//                                    if level > 3 {
-//                                        view?.presentScene(creditScene, transition: reveal)
-//                                    }
-//                                    else {
-//                                        view?.presentScene(levelScene, transition: reveal)
-//                                    }
-//                                }
-//                            ]))
-//                        }
-//
-//                        else if highlightPosition == bombPosition {
-//                            let generator = UIImpactFeedbackGenerator(style: .heavy)
-//                            generator.impactOccurred()
-//                            bomb.isHidden = false
-//                            gameover = true
-//                            run(SKAction.sequence([
-//                                bombSound,
-//                                SKAction.wait(forDuration: 1.0),
-//                                SKAction.run() { [weak self] in
-//                                    guard let `self` = self else { return }
-//                                    let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-//                                    let creditScene = CreditScene(size: view!.bounds.size, titleName: "GAME OVER")
-//                                    view?.presentScene(creditScene, transition: reveal)
-//                                }
-//                            ]))
-//                        }
-//
-//                        else {
-//                            for array in zonkArray {
-//                                let zonkPosition = CGPoint(x: round(array.position.x * 10) / 10.0, y: round(array.position.y * 10) / 10.0)
-//
-//                                if highlightPosition == zonkPosition && array.isHidden == true {
-//                                    run(shovelSound)
-//                                    array.isHidden = false
-//                                    break
-//                                }
-//                            }
-//                        }
-//                    }
+                    if isHider == true {
+                        if actionButton.contains(position) && !gameover {
+                            let highlightPosition = CGPoint(x: ceil(lastRayPos.x / 100) * 100.0, y: ceil(lastRayPos.y / 100) * 100.0 )
+                            if person.hidingObject != nil {
+                                person.exit()
+                                person.zPosition = 999999
+                            } else if let object = objectMap[highlightPosition] {
+                                if object.isAvailable() {
+                                    person.hide(object: object)
+                                    object.hide(person: person)
+                                    person.zPosition = 0.1
+                                } else {
+                                    
+                                }
+                            }
+                        }
+                    } else {
+                        if actionButton.contains(position) && !gameover {
+                            let highlightPosition = CGPoint(x: round(lastRayPos.x / 100) * 100.0, y: round(lastRayPos.y / 100) * 100.0 )
+                            if let object = objectMap[highlightPosition] {
+                                if object.find() {
+                                    foundHiders += 1
+                                } else {
+                                    
+                                }
+                            } else if let personFound = hiderMap[highlightPosition]{
+                                foundHiders += 1
+                                personFound.found()
+                            }
+                        }
+
+                    }
                 }
-                
-//                if closeButton.contains(position) {
-//                    run(SKAction.sequence([
-//                        SKAction.wait(forDuration: 0.5),
-//                        SKAction.run() { [weak self] in
-//                            guard let `self` = self else { return }
-//                            let reveal = SKTransition.fade(withDuration: 0.5)
-//                            let scene = GameScene(fileNamed: "GameScene")
-//                            scene!.size = view!.bounds.size
-//                            scene!.scaleMode = .aspectFill
-//                            self.view?.presentScene(scene!, transition:reveal)
-//                        }
-//                    ]))
-//                }
             }
         }
     }
@@ -326,35 +264,141 @@ class ResidenceScene: SKScene {
         var xDirection = 0.0
         var yDirection = 0.0
         
-        if herMovesRight == true {
-            person.position.x += 5
-            xDirection = 1
-            isTouchEnded = false
+        var lastPos = lastRayPos
+        
+        if isHider {
+            if person.hidingObject != nil {
+                return
+            }
+            if herMovesRight == true {
+                person.position.x += 5
+                xDirection = 1
+                isTouchEnded = false
+                person.texture = SKTexture(imageNamed: "hider1_right_move1")
+            }
+            
+            if herMovesLeft == true {
+                person.position.x -= 5
+                xDirection = -1
+                isTouchEnded = false
+                person.texture = SKTexture(imageNamed: "hider1_left_move1")
+            }
+            
+            if herMovesUp == true {
+                person.position.y += 5
+                yDirection = 1
+                isTouchEnded = false
+            }
+            
+            if herMovesDown == true {
+                person.position.y -= 5
+                yDirection = -1
+                isTouchEnded = false
+            }
+            lastPos = (xDirection == 0 && yDirection == 0) ? lastRayPos : person.position
+            person.zPosition = 99999
+            
+            if person.position.x > 340 {
+                cam.position = CGPoint(x: 340, y: person.position.y)
+                if person.position.y > 535 {
+                    cam.position = CGPoint(x: 340, y: 540)
+                } else if person.position.y < -680 {
+                    cam.position = CGPoint(x: 340, y: -680)
+                }
+            } else if person.position.x < -298 {
+                cam.position = CGPoint(x: -298, y: person.position.y)
+                if person.position.y > 540 {
+                    cam.position = CGPoint(x: -298, y: 540)
+                } else if person.position.y < -680 {
+                    cam.position = CGPoint(x: -298, y: -680)
+                }
+            } else if person.position.y > 540 {
+                cam.position = CGPoint(x: person.position.x, y: 540)
+                if person.position.x > 340 {
+                    cam.position = CGPoint(x: 340, y: 540)
+                } else if person.position.x < -298 {
+                    cam.position = CGPoint(x: -298, y: 540)
+                }
+            } else if person.position.y < -680 {
+                cam.position = CGPoint(x: person.position.x, y: -680)
+                if person.position.x > 340 {
+                    cam.position = CGPoint(x: 340, y: -680)
+                } else if person.position.x < -298 {
+                    cam.position = CGPoint(x: -298, y: -680)
+                }
+            } else {
+                cam.position = person.position
+            }
+            
+        } else {
+            if herMovesRight == true {
+                seeker.position.x += 5
+                xDirection = 1
+                isTouchEnded = false
+                seeker.texture = SKTexture(imageNamed: "hider1_right_move1")
+            }
+            
+            if herMovesLeft == true {
+                seeker.position.x -= 5
+                xDirection = -1
+                isTouchEnded = false
+                seeker.texture = SKTexture(imageNamed: "hider1_left_move1")
+            }
+            
+            if herMovesUp == true {
+                seeker.position.y += 5
+                yDirection = 1
+                isTouchEnded = false
+            }
+            
+            if herMovesDown == true {
+                seeker.position.y -= 5
+                yDirection = -1
+                isTouchEnded = false
+            }
+            lastPos = (xDirection == 0 && yDirection == 0) ? lastRayPos : seeker.position
+            seeker.zPosition = 99999
+            
+            if seeker.position.x > 340 {
+                cam.position = CGPoint(x: 340, y: seeker.position.y)
+                if seeker.position.y > 535 {
+                    cam.position = CGPoint(x: 340, y: 540)
+                } else if seeker.position.y < -680 {
+                    cam.position = CGPoint(x: 340, y: -680)
+                }
+            } else if seeker.position.x < -298 {
+                cam.position = CGPoint(x: -298, y: seeker.position.y)
+                if seeker.position.y > 540 {
+                    cam.position = CGPoint(x: -298, y: 540)
+                } else if seeker.position.y < -680 {
+                    cam.position = CGPoint(x: -298, y: -680)
+                }
+            } else if seeker.position.y > 540 {
+                cam.position = CGPoint(x: seeker.position.x, y: 540)
+                if seeker.position.x > 340 {
+                    cam.position = CGPoint(x: 340, y: 540)
+                } else if seeker.position.x < -298 {
+                    cam.position = CGPoint(x: -298, y: 540)
+                }
+            } else if seeker.position.y < -680 {
+                cam.position = CGPoint(x: seeker.position.x, y: -680)
+                if seeker.position.x > 340 {
+                    cam.position = CGPoint(x: 340, y: -680)
+                } else if seeker.position.x < -298 {
+                    cam.position = CGPoint(x: -298, y: -680)
+                }
+            } else {
+                cam.position = seeker.position
+            }
         }
         
-        if herMovesLeft == true {
-            person.position.x -= 5
-            xDirection = -1
-            isTouchEnded = false
-        }
-        
-        if herMovesUp == true {
-            person.position.y += 5
-            yDirection = 1
-            isTouchEnded = false
-        }
-        
-        if herMovesDown == true {
-            person.position.y -= 5
-            yDirection = -1
-            isTouchEnded = false
-        }
+
         
         if !herMovesUp && !herMovesDown && !herMovesLeft && !herMovesRight {
             isTouchEnded = true
         }
         
-        let lastPos = (xDirection == 0 && yDirection == 0) ? lastRayPos : person.position
+        
         let rayPos = CGPoint(x: lastPos.x + xDirection * 70, y: lastPos.y + yDirection * 70)
         
         ray = SKPhysicsBody(circleOfRadius: 10, center: rayPos)
@@ -363,38 +407,6 @@ class ResidenceScene: SKScene {
         ray.collisionBitMask = bitMask.walls.rawValue
         physicsBody = ray
         lastRayPos = rayPos
-        
-        if person.position.x > 340 {
-            cam.position = CGPoint(x: 340, y: person.position.y)
-            if person.position.y > 535 {
-                cam.position = CGPoint(x: 340, y: 540)
-            } else if person.position.y < -680 {
-                cam.position = CGPoint(x: 340, y: -680)
-            }
-        } else if person.position.x < -298 {
-            cam.position = CGPoint(x: -298, y: person.position.y)
-            if person.position.y > 540 {
-                cam.position = CGPoint(x: -298, y: 540)
-            } else if person.position.y < -680 {
-                cam.position = CGPoint(x: -298, y: -680)
-            }
-        } else if person.position.y > 540 {
-            cam.position = CGPoint(x: person.position.x, y: 540)
-            if person.position.x > 340 {
-                cam.position = CGPoint(x: 340, y: 540)
-            } else if person.position.x < -298 {
-                cam.position = CGPoint(x: -298, y: 540)
-            }
-        } else if person.position.y < -680 {
-            cam.position = CGPoint(x: person.position.x, y: -680)
-            if person.position.x > 340 {
-                cam.position = CGPoint(x: 340, y: -680)
-            } else if person.position.x < -298 {
-                cam.position = CGPoint(x: -298, y: -680)
-            }
-        } else {
-            cam.position = person.position
-        }
         
         leftButton.position.x = cam.position.x - 560
         leftButton.position.y = cam.position.y - 175
@@ -407,10 +419,15 @@ class ResidenceScene: SKScene {
         actionButton.position.x = cam.position.x + 475
         actionButton.position.y = cam.position.y - 175
         
-        person.zPosition = 99999
         leftButton.zPosition = 99999
         rightButton.zPosition = 99999
         upButton.zPosition = 99999
         downButton.zPosition = 99999
+        
+        if isHider == true {
+            hiderMap[person.position] = self.person
+        } else {
+            
+        }
     }
 }
