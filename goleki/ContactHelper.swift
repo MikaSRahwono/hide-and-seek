@@ -8,7 +8,7 @@
 import SpriteKit
 
 enum bitMask: UInt32 {
-    case person = 0x1
+    case hider = 0x1
     case floor = 0x5
     case highlight = 0x3
     case walls = 0x2

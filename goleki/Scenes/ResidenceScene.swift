@@ -8,10 +8,11 @@
 import SpriteKit
 import GameplayKit
 import GameKit
+import CoreGraphics
 
-class ResidenceScene: SKScene {
+class ResidenceScene: SKScene, GKMatchDelegate {
     
-    var person: Person!
+    var hider: Hider!
     var seeker: Seeker!
     
     var match: GKMatch?
@@ -27,10 +28,9 @@ class ResidenceScene: SKScene {
     var highlight = SKNode()
     var ray: SKPhysicsBody!
     
-    var hiderPlayerMap: [Person] = []
-    var seekerPlayerMap: [Seeker] = []
     var objectMap: [CGPoint: Object] = [:]
-    var hiderMap: [CGPoint: Person] = [:]
+    var itemMap: [CGPoint: Item] = [:]
+    var hiderMap: [CGPoint: Hider] = [:]
     
 //    let walkingSound = SKAction.playSoundFileNamed("walkingSFX.mp3", waitForCompletion: false)
 //    let bombSound = SKAction.playSoundFileNamed("bombSFX.mp3", waitForCompletion: false)
@@ -56,8 +56,10 @@ class ResidenceScene: SKScene {
     private var gameModel: GameModel!
     
     override func didMove(to view: SKView) {
+        gameModel = GameModel()
+        match?.delegate = self
+        
         physicsWorld.contactDelegate = self
-        isHider = true
         self.camera = cam
         
         if let mapNode = self.childNode(withName: "map") as? SKTileMapNode {
@@ -74,7 +76,10 @@ class ResidenceScene: SKScene {
                     if tileMap.name == "object"{
                         let position = CGPoint(x: ceil(tileMap.position.x * 3 / 100) * 100.0, y: ceil(tileMap.position.y * 3 / 100) * 100.0 )
                         let object = Object(tileMapNode: tileMap)
+                        let item = Item()
+                        object.item = item
                         objectMap[position] = object
+                        itemMap[position] = item
                         giveTileMapPhysicsBody(map: tileMap, parentScale: scale, zPos: zPos, parentTileMap: tileMap)
                         zPos += 1
                         continue
@@ -92,18 +97,43 @@ class ResidenceScene: SKScene {
                 }
             }
         }
+        gameModel.items = itemMap
+        sendData()
         addObject()
     }
     
     func addObject() {
-        if isHider {
-            person = childNode(withName: "Person") as? Person
-            person.setup()
+        if getLocalPlayerRole() == PlayerRole.hider {
+            isHider = true
         } else {
-            seeker = childNode(withName: "Seeker") as? Seeker
-            seeker.setup()
+            isHider = false
         }
-        lastRayPos = CGPoint(x: person.position.x + 70, y: person.position.y)
+
+        hider = childNode(withName: "Hider") as? Hider
+        seeker = childNode(withName: "Seeker") as? Seeker
+        
+        if let player2Name = match?.players.first?.displayName {
+            let player1 = Player(displayName: GKLocalPlayer.local.displayName, position: hider.position, role: PlayerRole.hider, isFound: false)
+            hider.player = player1
+            let player2 = Player(displayName: player2Name, position: seeker.position, role: PlayerRole.seeker, isFound: false)
+            seeker.player = player2
+            gameModel.players = [player1, player2]
+            
+            gameModel.players.sort { (player1, player2) -> Bool in
+                player1.displayName < player2.displayName
+            }
+            
+            sendData()
+        }
+        
+        seeker.setup()
+        hider.setup()
+
+        if isHider {
+            lastRayPos = CGPoint(x: hider.position.x + 70, y: hider.position.y)
+        } else {
+            lastRayPos = CGPoint(x: seeker.position.x + 70, y: seeker.position.y)
+        }
         actionButton = childNode(withName: "actionButton") as! SKSpriteNode
         
         for node in self.children {
@@ -127,27 +157,14 @@ class ResidenceScene: SKScene {
                 herMovesDown = true
             }
         }
-        
-        for seeker in seekerPlayerMap {
-            self.addChild(seeker)
-        }
-        for hider in hiderPlayerMap {
-            self.addChild(hider)
-        }
     }
     
-    private func savePlayers() {
-        guard let player2Name = match?.players.first?.displayName else { return }
-        let player1 = Player(displayName: GKLocalPlayer.local.displayName)
-        let player2 = Player(displayName: player2Name)
-        
-        gameModel.players = [player1, player2]
-        
-        gameModel.players.sort { (player1, player2) -> Bool in
-            player1.displayName < player2.displayName
+    private func getLocalPlayerRole() -> PlayerRole {
+        if gameModel.players.first?.displayName == GKLocalPlayer.local.displayName {
+            return .hider
+        } else {
+            return .seeker
         }
-        
-        sendData()
     }
     
     private func sendData() {
@@ -187,11 +204,11 @@ class ResidenceScene: SKScene {
                     if tileMap.name == "walls" {
                         tileNode.physicsBody?.categoryBitMask = bitMask.walls.rawValue
                         tileNode.physicsBody?.contactTestBitMask = 0
-                        tileNode.physicsBody?.collisionBitMask = bitMask.person.rawValue
+                        tileNode.physicsBody?.collisionBitMask = bitMask.hider.rawValue
                     } else if tileMap.name == "object" {
                         tileNode.physicsBody?.categoryBitMask = bitMask.walls.rawValue
                         tileNode.physicsBody?.contactTestBitMask = 0
-                        tileNode.physicsBody?.collisionBitMask = bitMask.person.rawValue
+                        tileNode.physicsBody?.collisionBitMask = bitMask.hider.rawValue
                     }
                     else {
                         tileNode.physicsBody?.categoryBitMask = bitMask.floor.rawValue
@@ -255,19 +272,22 @@ class ResidenceScene: SKScene {
                     if isHider == true {
                         if actionButton.contains(position) && !gameover {
                             let highlightPosition = CGPoint(x: ceil(lastRayPos.x / 100) * 100.0, y: ceil(lastRayPos.y / 100) * 100.0 )
-                            if person.hidingObject != nil {
-                                person.exit()
-                                person.zPosition = 999999
+                            if hider.hidingObject != nil {
+                                hider.hidingObject.item.player = nil
+                                hider.exit()
+                                hider.zPosition = 999999
                             } else if let object = objectMap[highlightPosition] {
                                 if object.isAvailable() {
-                                    person.hide(object: object)
-                                    object.hide(person: person)
-                                    person.zPosition = 0.1
+                                    hider.hide(object: object)
+                                    object.hide(hider: hider)
+                                    hider.zPosition = 0.1
+                                    object.item.player = hider.player
                                 } else {
                                     
                                 }
                             }
                         }
+                        sendData()
                     } else {
                         if actionButton.contains(position) && !gameover {
                             let highlightPosition = CGPoint(x: round(lastRayPos.x / 100) * 100.0, y: round(lastRayPos.y / 100) * 100.0 )
@@ -277,12 +297,13 @@ class ResidenceScene: SKScene {
                                 } else {
                                     
                                 }
-                            } else if let personFound = hiderMap[highlightPosition]{
+                            } else if let hiderFound = hiderMap[highlightPosition]{
                                 foundHiders += 1
-                                personFound.found()
+                                hiderFound.player.isFound = true
+                                hiderFound.found()
                             }
                         }
-
+                        sendData()
                     }
                 }
             }
@@ -297,67 +318,69 @@ class ResidenceScene: SKScene {
         var lastPos = lastRayPos
         
         if isHider {
-            if person.hidingObject != nil {
+            if hider.hidingObject != nil {
                 return
             }
             if herMovesRight == true {
-                person.position.x += 5
+                hider.position.x += 5
                 xDirection = 1
                 isTouchEnded = false
-                person.texture = SKTexture(imageNamed: "hider1_right_move1")
+                hider.texture = SKTexture(imageNamed: "hider1_right_move1")
             }
             
             if herMovesLeft == true {
-                person.position.x -= 5
+                hider.position.x -= 5
                 xDirection = -1
                 isTouchEnded = false
-                person.texture = SKTexture(imageNamed: "hider1_left_move1")
+                hider.texture = SKTexture(imageNamed: "hider1_left_move1")
             }
             
             if herMovesUp == true {
-                person.position.y += 5
+                hider.position.y += 5
                 yDirection = 1
                 isTouchEnded = false
             }
             
             if herMovesDown == true {
-                person.position.y -= 5
+                hider.position.y -= 5
                 yDirection = -1
                 isTouchEnded = false
             }
-            lastPos = (xDirection == 0 && yDirection == 0) ? lastRayPos : person.position
-            person.zPosition = 99999
+            lastPos = (xDirection == 0 && yDirection == 0) ? lastRayPos : hider.position
+            hider.zPosition = 99999
             
-            if person.position.x > 340 {
-                cam.position = CGPoint(x: 340, y: person.position.y)
-                if person.position.y > 535 {
+            if hider.position.x > 340 {
+                cam.position = CGPoint(x: 340, y: hider.position.y)
+                if hider.position.y > 535 {
                     cam.position = CGPoint(x: 340, y: 540)
-                } else if person.position.y < -680 {
+                } else if hider.position.y < -680 {
                     cam.position = CGPoint(x: 340, y: -680)
                 }
-            } else if person.position.x < -298 {
-                cam.position = CGPoint(x: -298, y: person.position.y)
-                if person.position.y > 540 {
+            } else if hider.position.x < -298 {
+                cam.position = CGPoint(x: -298, y: hider.position.y)
+                if hider.position.y > 540 {
                     cam.position = CGPoint(x: -298, y: 540)
-                } else if person.position.y < -680 {
+                } else if hider.position.y < -680 {
                     cam.position = CGPoint(x: -298, y: -680)
                 }
-            } else if person.position.y > 540 {
-                cam.position = CGPoint(x: person.position.x, y: 540)
-                if person.position.x > 340 {
+            } else if hider.position.y > 540 {
+                cam.position = CGPoint(x: hider.position.x, y: 540)
+                if hider.position.x > 340 {
                     cam.position = CGPoint(x: 340, y: 540)
-                } else if person.position.x < -298 {
+                } else if hider.position.x < -298 {
                     cam.position = CGPoint(x: -298, y: 540)
                 }
-            } else if person.position.y < -680 {
-                cam.position = CGPoint(x: person.position.x, y: -680)
-                if person.position.x > 340 {
+            } else if hider.position.y < -680 {
+                cam.position = CGPoint(x: hider.position.x, y: -680)
+                if hider.position.x > 340 {
                     cam.position = CGPoint(x: 340, y: -680)
-                } else if person.position.x < -298 {
+                } else if hider.position.x < -298 {
                     cam.position = CGPoint(x: -298, y: -680)
                 }
+                gameModel.players[0].position = hider.position
+                sendData()
             } else {
-                cam.position = person.position
+                cam.position = hider.position
             }
             
         } else {
@@ -417,12 +440,12 @@ class ResidenceScene: SKScene {
                 } else if seeker.position.x < -298 {
                     cam.position = CGPoint(x: -298, y: -680)
                 }
+                gameModel.players[1].position = seeker.position
+                sendData()
             } else {
                 cam.position = seeker.position
             }
         }
-        
-
         
         if !herMovesUp && !herMovesDown && !herMovesLeft && !herMovesRight {
             isTouchEnded = true
@@ -453,11 +476,18 @@ class ResidenceScene: SKScene {
         rightButton.zPosition = 99999
         upButton.zPosition = 99999
         downButton.zPosition = 99999
-        
-        if isHider == true {
-            hiderMap[person.position] = self.person
-        } else {
-            
-        }
     }
 }
+
+extension CGPoint: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(x)
+        hasher.combine(y)
+    }
+
+    public static func == (lhs: CGPoint, rhs: CGPoint) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y
+    }
+}
+
+var objectMap: [CGPoint: Object] = [:]

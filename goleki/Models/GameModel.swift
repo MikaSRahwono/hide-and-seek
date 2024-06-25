@@ -11,7 +11,7 @@ import GameKit
 
 struct GameModel: Codable {
     var players: [Player] = []
-    var time: Int = 60
+    var items: [CGPoint: Item] = [:]
 }
 
 extension GameModel {

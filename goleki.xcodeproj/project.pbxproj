@@ -14,13 +14,14 @@
 		1DB552192C29774000A2C965 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB552182C29774000A2C965 /* GameCenterHelper.swift */; };
 		1DB5521C2C298A9200A2C965 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB5521B2C298A9200A2C965 /* GameModel.swift */; };
 		1DB5521E2C298B0D00A2C965 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB5521D2C298B0D00A2C965 /* Player.swift */; };
-		1DB552202C298B3800A2C965 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB5521F2C298B3800A2C965 /* PlayerStatus.swift */; };
 		FA20293A2C296EA80076F28C /* Seeker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2029392C296EA80076F28C /* Seeker.swift */; };
+		FA20293C2C2AABB80076F28C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20293B2C2AABB80076F28C /* Item.swift */; };
+		FA20293E2C2AAE2D0076F28C /* PlayerRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20293D2C2AAE2D0076F28C /* PlayerRole.swift */; };
 		FA38B10E2C22DB180029F882 /* ResidenceScene 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA38B10D2C22DB180029F882 /* ResidenceScene 2.sks */; };
 		FA38B1102C22DB1F0029F882 /* MapScene 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA38B10F2C22DB1F0029F882 /* MapScene 2.sks */; };
 		FA38B1122C22DBE20029F882 /* Background 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA38B1112C22DBE20029F882 /* Background 2.sks */; };
 		FA4BE3262C2277C900369DC7 /* MapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BE3252C2277C900369DC7 /* MapScene.swift */; };
-		FA4BE3282C2277F100369DC7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BE3272C2277EC00369DC7 /* Person.swift */; };
+		FA4BE3282C2277F100369DC7 /* Hider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BE3272C2277EC00369DC7 /* Hider.swift */; };
 		FA4BE32A2C22782800369DC7 /* ContactHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BE3292C22782800369DC7 /* ContactHelper.swift */; };
 		FA4BE32D2C22C17F00369DC7 /* ResidenceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BE32C2C22C17A00369DC7 /* ResidenceScene.swift */; };
 		FA71B6BF2C22DA6E001B0B46 /* InteriorAssetScene 2.sks in Resources */ = {isa = PBXBuildFile; fileRef = FA71B6BE2C22DA6E001B0B46 /* InteriorAssetScene 2.sks */; };
@@ -64,13 +65,14 @@
 		1DB552182C29774000A2C965 /* GameCenterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
 		1DB5521B2C298A9200A2C965 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		1DB5521D2C298B0D00A2C965 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		1DB5521F2C298B3800A2C965 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
 		FA2029392C296EA80076F28C /* Seeker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeker.swift; sourceTree = "<group>"; };
+		FA20293B2C2AABB80076F28C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		FA20293D2C2AAE2D0076F28C /* PlayerRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRole.swift; sourceTree = "<group>"; };
 		FA38B10D2C22DB180029F882 /* ResidenceScene 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "ResidenceScene 2.sks"; sourceTree = "<group>"; };
 		FA38B10F2C22DB1F0029F882 /* MapScene 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "MapScene 2.sks"; sourceTree = "<group>"; };
 		FA38B1112C22DBE20029F882 /* Background 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Background 2.sks"; sourceTree = "<group>"; };
 		FA4BE3252C2277C900369DC7 /* MapScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
-		FA4BE3272C2277EC00369DC7 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		FA4BE3272C2277EC00369DC7 /* Hider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hider.swift; sourceTree = "<group>"; };
 		FA4BE3292C22782800369DC7 /* ContactHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHelper.swift; sourceTree = "<group>"; };
 		FA4BE32C2C22C17A00369DC7 /* ResidenceScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidenceScene.swift; sourceTree = "<group>"; };
 		FA71B6BE2C22DA6E001B0B46 /* InteriorAssetScene 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "InteriorAssetScene 2.sks"; sourceTree = "<group>"; };
@@ -129,7 +131,8 @@
 			children = (
 				1DB5521B2C298A9200A2C965 /* GameModel.swift */,
 				1DB5521D2C298B0D00A2C965 /* Player.swift */,
-				1DB5521F2C298B3800A2C965 /* PlayerStatus.swift */,
+				FA20293B2C2AABB80076F28C /* Item.swift */,
+				FA20293D2C2AAE2D0076F28C /* PlayerRole.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,7 +223,7 @@
 		FABCAA932C22CCC500265995 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				FA4BE3272C2277EC00369DC7 /* Person.swift */,
+				FA4BE3272C2277EC00369DC7 /* Hider.swift */,
 				FAC19EB82C295615000E5E05 /* Object.swift */,
 				FA2029392C296EA80076F28C /* Seeker.swift */,
 			);
@@ -367,11 +370,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA4BE3282C2277F100369DC7 /* Person.swift in Sources */,
+				FA4BE3282C2277F100369DC7 /* Hider.swift in Sources */,
 				FAAC07B52C1847E80017C949 /* GameScene.swift in Sources */,
 				FA4BE32A2C22782800369DC7 /* ContactHelper.swift in Sources */,
 				FA4BE3262C2277C900369DC7 /* MapScene.swift in Sources */,
-				1DB552202C298B3800A2C965 /* PlayerStatus.swift in Sources */,
+				FA20293E2C2AAE2D0076F28C /* PlayerRole.swift in Sources */,
+				FA20293C2C2AABB80076F28C /* Item.swift in Sources */,
 				1DB5521E2C298B0D00A2C965 /* Player.swift in Sources */,
 				1DB552192C29774000A2C965 /* GameCenterHelper.swift in Sources */,
 				1DB552172C2976D800A2C965 /* MenuViewController.swift in Sources */,
@@ -571,7 +575,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -601,7 +605,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
