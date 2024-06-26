@@ -592,7 +592,7 @@ class ResidenceScene: SKScene, GKMatchDelegate {
     var itemMap: [CGPoint: Item] = [:]
     var hiderMap: [CGPoint: Hider] = [:]
     
-//    let walkingSound = SKAction.playSoundFileNamed("walkingSFX.mp3", waitForCompletion: false)
+    let walkingSound = SKAction.playSoundFileNamed("Walking-Wood-1.aiff", waitForCompletion: false)
 //    let bombSound = SKAction.playSoundFileNamed("bombSFX.mp3", waitForCompletion: false)
 //    let shovelSound = SKAction.playSoundFileNamed("shovelSFX.mp3", waitForCompletion: false)
 //    let chestSound = SKAction.playSoundFileNamed("treasureSFX.mp3", waitForCompletion: false)
@@ -827,22 +827,22 @@ class ResidenceScene: SKScene, GKMatchDelegate {
             
             for node in touchNode {
                 if node.name == "buttonLeft" && !gameover {
-//                    run(walkingSound)
+                    run(walkingSound)
                     herMovesLeft = true
                 }
                 
                 if node.name == "buttonRight" && !gameover {
-//                    run(walkingSound)
+                    run(walkingSound)
                     herMovesRight = true
                 }
                 
                 if node.name == "buttonUp" && !gameover {
-//                    run(walkingSound)
+                    run(walkingSound)
                     herMovesUp = true
                 }
                 
                 if node.name == "buttonDown" && !gameover {
-//                    run(walkingSound)
+                    run(walkingSound)
                     herMovesDown = true
                 }
             }
@@ -935,14 +935,14 @@ class ResidenceScene: SKScene, GKMatchDelegate {
                 hider.position.x += 5
                 xDirection = 1
                 isTouchEnded = false
-                hider.texture = SKTexture(imageNamed: "hider1_right_move1")
+                hider.texture = SKTexture(imageNamed: "hider1_right_17")
             }
             
             if herMovesLeft == true {
                 hider.position.x -= 5
                 xDirection = -1
                 isTouchEnded = false
-                hider.texture = SKTexture(imageNamed: "hider1_left_move1")
+                hider.texture = SKTexture(imageNamed: "hider1_left_11")
             }
             
             if herMovesUp == true {
