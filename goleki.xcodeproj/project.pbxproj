@@ -62,6 +62,19 @@
 		0443790D2C2187DB0052E49D /* EnvironmentScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EnvironmentScene.sks; sourceTree = "<group>"; };
 		0443790F2C2193AA0052E49D /* ExampleTile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExampleTile.sks; sourceTree = "<group>"; };
 		046176632C2AB9FF00AA9EBA /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		1D84C7532C2BFDCA0072C488 /* Church-Bell-2.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Church-Bell-2.aiff"; sourceTree = "<group>"; };
+		1D84C7542C2BFDCA0072C488 /* Rooster-Cry-1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Rooster-Cry-1.aiff"; sourceTree = "<group>"; };
+		1D84C7552C2BFDCA0072C488 /* Howl-Ghost-2.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Howl-Ghost-2.aiff"; sourceTree = "<group>"; };
+		1D84C7562C2BFDCA0072C488 /* Walking-Wood-2.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Walking-Wood-2.aiff"; sourceTree = "<group>"; };
+		1D84C7572C2BFDCA0072C488 /* Howl-Wolf-2.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Howl-Wolf-2.aiff"; sourceTree = "<group>"; };
+		1D84C7582C2BFDCA0072C488 /* Running-Grass-1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Running-Grass-1.aiff"; sourceTree = "<group>"; };
+		1D84C7592C2BFDCB0072C488 /* Ghost-Cry-1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Ghost-Cry-1.aiff"; sourceTree = "<group>"; };
+		1D84C75A2C2BFDCB0072C488 /* Howl-Wolf-1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Howl-Wolf-1.aiff"; sourceTree = "<group>"; };
+		1D84C75B2C2BFDCB0072C488 /* Outros.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Outros.aiff; sourceTree = "<group>"; };
+		1D84C75C2C2BFDCB0072C488 /* Main-Menu.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Main-Menu.aiff"; sourceTree = "<group>"; };
+		1D84C75D2C2BFDCB0072C488 /* Howl-Ghost-1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Howl-Ghost-1.aiff"; sourceTree = "<group>"; };
+		1D84C75E2C2BFDCB0072C488 /* Church-Bell-1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Church-Bell-1.aiff"; sourceTree = "<group>"; };
+		1D84C75F2C2BFDCB0072C488 /* Walking-Wood-1.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Walking-Wood-1.aiff"; sourceTree = "<group>"; };
 		1DB552152C29724F00A2C965 /* goleki.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = goleki.entitlements; sourceTree = "<group>"; };
 		1DB552162C2976D800A2C965 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1DB552182C29774000A2C965 /* GameCenterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
@@ -120,6 +133,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D84C7382C2BFC6E0072C488 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				1D84C75E2C2BFDCB0072C488 /* Church-Bell-1.aiff */,
+				1D84C7532C2BFDCA0072C488 /* Church-Bell-2.aiff */,
+				1D84C7592C2BFDCB0072C488 /* Ghost-Cry-1.aiff */,
+				1D84C75D2C2BFDCB0072C488 /* Howl-Ghost-1.aiff */,
+				1D84C7552C2BFDCA0072C488 /* Howl-Ghost-2.aiff */,
+				1D84C75A2C2BFDCB0072C488 /* Howl-Wolf-1.aiff */,
+				1D84C7572C2BFDCA0072C488 /* Howl-Wolf-2.aiff */,
+				1D84C75C2C2BFDCB0072C488 /* Main-Menu.aiff */,
+				1D84C75B2C2BFDCB0072C488 /* Outros.aiff */,
+				1D84C7542C2BFDCA0072C488 /* Rooster-Cry-1.aiff */,
+				1D84C7582C2BFDCA0072C488 /* Running-Grass-1.aiff */,
+				1D84C75F2C2BFDCB0072C488 /* Walking-Wood-1.aiff */,
+				1D84C7562C2BFDCA0072C488 /* Walking-Wood-2.aiff */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		1DB552142C296FD200A2C965 /* Multiplayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +205,7 @@
 		FAAC07AD2C1847E80017C949 /* goleki */ = {
 			isa = PBXGroup;
 			children = (
+				1D84C7382C2BFC6E0072C488 /* Sounds */,
 				1DB5521A2C298A7800A2C965 /* Models */,
 				1DB552142C296FD200A2C965 /* Multiplayer */,
 				FABCAA932C22CCC500265995 /* Nodes */,
